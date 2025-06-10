@@ -1,0 +1,2496 @@
+{
+  "id": "17c27e2b-2663-4a29-82e7-a5e3782b1e2b",
+  "revision": 0,
+  "last_node_id": 59,
+  "last_link_id": 86,
+  "nodes": [
+    {
+      "id": 28,
+      "type": "VAEEncode",
+      "pos": [
+        411.890625,
+        824.9931640625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "pixels",
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 33
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 49
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "VAEEncode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 21,
+      "type": "VAEDecode",
+      "pos": [
+        1185.5716552734375,
+        842.7857666015625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 24
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "VAEDecode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 22,
+      "type": "PreviewImage",
+      "pos": [
+        1139.1024169921875,
+        959.3062744140625
+      ],
+      "size": [
+        548.2070922851562,
+        564.8809814453125
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "PreviewImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 27,
+      "type": "LoadImage",
+      "pos": [
+        -85.41915893554688,
+        1111.763916015625
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            33
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {
+          "image": true
+        }
+      },
+      "widgets_values": [
+        "ComfyUI_temp_bkpil_00003_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "CLIPTextEncode",
+      "pos": [
+        334.8809509277344,
+        1204.7760009765625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 52
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            47
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Prompt) NEG",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "ugly face, unrealistic, bad lighting, watermark, copyright, cartoon, painting, sunglasses,\n"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 26,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -89.4236831665039,
+        947.1279296875
+      ],
+      "size": [
+        331.94000244140625,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            54
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            53
+          ]
+        },
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            25,
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "widget_ue_connectable": {
+          "ckpt_name": true
+        }
+      },
+      "widgets_values": [
+        "realisticVisionV60B1_v20Novae.safetensors"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "LoraLoader",
+      "pos": [
+        -1.0699329376220703,
+        1464.0694580078125
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 54
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 53
+        },
+        {
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_clip",
+          "name": "strength_clip",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_clip"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            55
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            51,
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "LoraLoader",
+        "widget_ue_connectable": {
+          "lora_name": true,
+          "strength_model": true,
+          "strength_clip": true
+        }
+      },
+      "widgets_values": [
+        "aidmaHyperrealism-FLUX-v0.3.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 32,
+      "type": "ControlNetLoader",
+      "pos": [
+        -10.157155990600586,
+        1657.2313232421875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "control_net_name",
+          "name": "control_net_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "control_net_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONTROL_NET",
+          "name": "CONTROL_NET",
+          "type": "CONTROL_NET",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "ControlNetLoader",
+        "widget_ue_connectable": {
+          "control_net_name": true
+        }
+      },
+      "widgets_values": [
+        null
+      ]
+    },
+    {
+      "id": 23,
+      "type": "CLIPTextEncode",
+      "pos": [
+        320.5498962402344,
+        952.824951171875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 51
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            46
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Prompt) POS",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "Two girls, age 22, selfie, on beach, holiday, black bikini, close up, cleaveg NSFW, 4K, DPI, masterpiece,"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 17,
+      "type": "VAEDecode",
+      "pos": [
+        1040.99658203125,
+        -205.11248779296875
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 21
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "VAEDecode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 25,
+      "type": "KSampler",
+      "pos": [
+        780.6641235351562,
+        961.9071655273438
+      ],
+      "size": [
+        315,
+        474.00006103515625
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 55
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 46
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 47
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 48
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "KSampler",
+        "widget_ue_connectable": {
+          "seed": true,
+          "steps": true,
+          "cfg": true,
+          "sampler_name": true,
+          "scheduler": true,
+          "denoise": true
+        }
+      },
+      "widgets_values": [
+        26185744911528,
+        "randomize",
+        20,
+        8,
+        "euler",
+        "normal",
+        0.3
+      ]
+    },
+    {
+      "id": 11,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        683.4715576171875,
+        -54.924163818359375
+      ],
+      "size": [
+        331.94000244140625,
+        98
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            19,
+            60
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            58
+          ]
+        },
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "widget_ue_connectable": {
+          "ckpt_name": true
+        }
+      },
+      "widgets_values": [
+        "realisticVisionV60B1_v20Novae.safetensors"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": [
+        1032.134033203125,
+        -139.5675811767578
+      ],
+      "size": [
+        796.5009155273438,
+        566.6112670898438
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "PreviewImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 14,
+      "type": "KSampler",
+      "pos": [
+        695.5442504882812,
+        103.00352478027344
+      ],
+      "size": [
+        315,
+        474
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 19
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 17
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 18
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 20
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "KSampler",
+        "widget_ue_connectable": {
+          "seed": true,
+          "steps": true,
+          "cfg": true,
+          "sampler_name": true,
+          "scheduler": true,
+          "denoise": true
+        }
+      },
+      "widgets_values": [
+        395854499293880,
+        "randomize",
+        20,
+        5,
+        "dpm_2",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 15,
+      "type": "EmptyLatentImage",
+      "pos": [
+        693.1907348632812,
+        -203.54225158691406
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "EmptyLatentImage",
+        "widget_ue_connectable": {
+          "width": true,
+          "height": true,
+          "batch_size": true
+        }
+      },
+      "widgets_values": [
+        768,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 36,
+      "type": "LoraLoader",
+      "pos": [
+        698.8151245117188,
+        597.4708251953125
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 60
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 58
+        },
+        {
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_clip",
+          "name": "strength_clip",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_clip"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": null
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            57,
+            59
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LoraLoader",
+        "widget_ue_connectable": {
+          "lora_name": true,
+          "strength_model": true,
+          "strength_clip": true
+        }
+      },
+      "widgets_values": [
+        "NSFW_master.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1025.2025146484375,
+        481.5948486328125
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 57
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            17
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Prompt) POS",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "This is a high-resolution photograph of a young woman standing on a balcony overlooking the ocean during sunset . She is a Caucasian woman with a fair skin tone , long straight blonde hair , and a slender yet curvy physique . She is wearing a black thong ; her husband stand behind her touching her ass ((nsfw))"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 13,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1428.5535888671875,
+        480.43218994140625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 59
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            18
+          ]
+        }
+      ],
+      "title": "CLIP Text Encode (Prompt) NEG",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.15",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "(worst quality, low quality), (bad hands), (bad fingers), (exaggerated features), (inaccurate likenesses), (unrecognisable features), (unrealistic resemblance), (distorted facial characteristics), (unattractive facial features), poorly structured teeth, rabbit-like teeth, feminine features on male characters, masculine features on female characters, ambiguous gender traits, (incorrect proportions), (error), cropped, blurry, blurred, (deformed), malformed, ((disfigured)), (poorly drawn), (incorrect positioning), ((awkward positioning)), (awkward pose), (inappropriate distancing), (mismatched body language), incorrect interaction, unnatural intimacy, poorly framed, animal, animal ears, exaggerated cock size, piercing eyes, ((extra limbs)), (extra fingers), (broken fingers), long neck, ((twisted body)), (distorted body shape), (oversized boobs), oversized cock, fused fingers, mutated, mutated hands, (malformed eyes), distorted face, (distorted eyes), distorted hands, wrong anatomy, bad anatomy, incorrect hand anatomy, poorly structured, poorly drawn eyes, poorly drawn background, poor body language, unnatural hair, (unnatural eyes), unnatural skin, excessive hair, out of frame, over posed, elongated, elongated body, elongated fingers, crossed legs, pixel, pixelated, text, watermark, title, signature, grainy, lack of emotions, lifeless, lack of details, lack of depths, jpeg, jpeg artifacts, drab lighting, overused, boring, predictable, clone, duplicate, out of focus, low-quality, deformed, text, poorly drawn, hilariously bad drawing, bad 3D render"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 38,
+      "type": "Note",
+      "pos": [
+        -199.9392852783203,
+        173.5334014892578
+      ],
+      "size": [
+        799.957763671875,
+        590.1656494140625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "(worst quality, low quality), (bad hands), (bad fingers), (exaggerated features), (inaccurate likenesses), (unrecognisable features), (unrealistic resemblance), (distorted facial characteristics), (unattractive facial features), poorly structured teeth, rabbit-like teeth, feminine features on male characters, masculine features on female characters, ambiguous gender traits, (incorrect proportions), (error), cropped, blurry, blurred, (deformed), malformed, ((disfigured)), (poorly drawn), (incorrect positioning), ((awkward positioning)), (awkward pose), (inappropriate distancing), (mismatched body language), incorrect interaction, unnatural intimacy, poorly framed, animal, animal ears, exaggerated cock size, piercing eyes, ((extra limbs)), (extra fingers), (broken fingers), long neck, ((twisted body)), (distorted body shape), (oversized boobs), oversized cock, fused fingers, mutated, mutated hands, (malformed eyes), distorted face, (distorted eyes), distorted hands, wrong anatomy, bad anatomy, incorrect hand anatomy, poorly structured, poorly drawn eyes, poorly drawn background, poor body language, unnatural hair, (unnatural eyes), unnatural skin, excessive hair, out of frame, over posed, elongated, elongated body, elongated fingers, crossed legs, pixel, pixelated, text, watermark, title, signature, grainy, lack of emotions, lifeless, lack of details, lack of depths, jpeg, jpeg artifacts, drab lighting, overused, boring, predictable, clone, duplicate, out of focus, low-quality, deformed, text, poorly drawn, hilariously bad drawing, bad 3D render, \n''''''''''''''\nlow quality, deformed, blurry, bad art, drawing, painting, incorrect anatomy, ugliness, ugly, horrible resolutions, low DPI, low PPI, bad character positioning, absurd anatomy, tiling, pixelization, low pixel count, blurry, low-res face, low poly, Poorly Drawn Characters, Badly Drawn Eyes, Badly Drawn Mouth, Badly Drawn Ears, Badly Drawn Nose, Badly Drawn Hands, Badly Drawn Feet, Badly Drawn Legs, Badly Drawn Hair, Badly Drawn Clothing, bad anatomy, (ugly), missing arms, bad proportions, tiling, missing legs, blurry, (poorly drawn feet), morbid, cloned face, ((extra limbs)), (mutated hands), cropped, (disfigured), mutation, deformed, (mutilated), dehydrated, body out of frame, out of frame, (disfigured), ((bad anatomy)), (poorly drawn face), duplicate, cut off, (poorly drawn hands), error, low contrast, signature, (extra arms), underexposed, text, (extra fingers), overexposed, (too many fingers), (extra legs), bad art, ugly, (extra limbs), beginner, username, (fused fingers), amateur, watermark, (distorted face), worst quality, jpeg artifacts, low quality, (malformed limbs), long neck, low-res, (poorly Rendered face), low resolution, low saturation, (bad composition), Images cut out at the top, left, right, bottom, (deformed body features), (poorly rendered hands)  unrealistic, animated, sketches, (text), low-quality, (((glitch:1.3))), deformed, extra limbs, blurry, bad art, (logo), watermark, blurred, cut off, extra fingers, bad quality, distortion of proportions, deformed fingers, elongated body, cropped image, deformed hands, deformed legs, deformed face, twisted fingers, double image, long neck, extra limb, plastic, disfigured, mutation, sloppy, ugly, pixelated, bad hands, aliasing, overexposed, oversaturated, burnt image, fuzzy, poor quality, deformed arms, ugly, bland, boring, model, (neurotypical), oversized boobs, unnatural body, makeup, anime, manga, disney, anal anime, manga, Disney, cartoon, low resolution, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name, anime, cartoon, rawing, illustration, boring, 3d render, long neck, out of frame, extra fingers mutation, deformed, canvas frame, high contrast:1.2, over saturated:1.2, glossy:1.1, bad lighting, deformed, text, bad lighting, deformed, text, worst quality, bad lighting, cropped, blurry, low-quality, deformed, text, poorly drawn, bad art, bad angle, boring, low-resolution, worst quality, bad composition, terrible lighting, bad anatomy, worst quality, bad lighting, cropped, blurry, low-quality, deformed, text, poorly drawn, bad art, bad angle, boring, low-resolution, worst quality, bad composition, terrible lighting, bad anatomy, worst quality, bad lighting, cropped, blurry, low-quality, deformed, text, poorly drawn, bad art, bad angle, boring, low-resolution, worst quality, bad composition, terrible lighting, bad anatomy, distorted, distorted eyes, distorted fingers, distorted face. , unrealistic, animated, sketches, (text), low-quality, deformed, extra limbs, blurry, bad art, (logo), watermark, blurred, cut off, extra fingers, bad quality, distortion of proportions, deformed fingers, elongated body, cropped image, deformed hands, deformed legs, deformed face, twisted fingers, double image, long neck, extra limb, plastic, disfigured, mutation, sloppy, ugly, pixelated, bad hands, aliasing, overexposed, oversaturated, burnt image, fuzzy, poor quality, deformed arms"
+      ],
+      "color": "#af3535",
+      "bgcolor": "rgba(24,24,27,.9)"
+    },
+    {
+      "id": 45,
+      "type": "VAEDecode",
+      "pos": [
+        4.591977596282959,
+        -1461.9136962890625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 68
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            69,
+            70
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "VAEDecode",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 37,
+      "type": "Note",
+      "pos": [
+        -198.9563751220703,
+        -148.91587829589844
+      ],
+      "size": [
+        802.9827880859375,
+        280.6072692871094
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "hyper-realistic photo, (Pov looking down on a young Victoria Justice is on her knees while sucking your cock with your hands on the back of her head as she looks up into the camera pov), (exhibitionist, crowded public place, indoors, house party), smooth skin, fair pale skin, shocked expression, wide eyes, (blowjob, pov, point of view, oral, penis), bokeh, 8k, highly detailed, render, cute big circular reflective eyes, dof, (cinematic film), subtle details, breathtaking, fine details, close up, sharp focus, incredible composition, superb lighting and detail, (Pov looking down on a young Victoria Justice is on her knees while sucking your cock as she looks up into the camera pov), anatomically correct, photo realistic penis, blowjob, pov, point of view, oral, penis, (dark lighting, dim lighting), natural beauty, casual photo, natural beauty, natural beauty\n--------------------------------------------------------------------------------\n((((RAW image)))), (((shot by Kodak disposable camera))), ((((cute)) (19 year old))) (((nude))) ((Danish with dark brown hair with blond stripes and brown eyes slim face)), ( D-cup breast)))), perfect detail perfect focus hyper-real ((ultra-realism)) ultra-real high definition ultra-high ((absolutely beautiful)) (🌌) (✨) (🪻) (🌠) (🦄) (🪄) (🔮) (🌈) (☄️) (🏞️) (🗝️) (🛡️) (cute)  (nsfw) (sexual) s, (masterpiece), (best quality), high quality, (((((detailed))))) (((astral))) pretty , ((masterpiece)), ((best quality)), high quality, \n-------------------------------------------------------------------------------------\nA casual photo of Sexy hot athletic slutty bop cute young girl. Teen young small short. Very blonde hair. She is Caucasian with Caucasian tan. Hottest most perfect body in the world. She has a very underdeveloped body. She is very young. Nude. The image is very realistic. The girl is not a model just a normal young teenage girl. Make the girl a lost smaller and skinnier. She is wearing light blue and white stockings that go up to her pussy and light blue and white arm sleeve that go up to her mid bicep. She is completely nude otherwise. She is kneeling down seductively. Her tongue is sticking out. she is taking a selfie with hand is high above her head. The picture is being taken from the phone she is holding. Her head is tilted up. There is no phone in the image. She is inside, aerial shot, handheld shot. It's a casual photo.\n----------------------------------------------------------------------------------\nFlash pic of A very young dark brown hair girl standing in her room with her bra pulled up over her breasts. Her panties pulled down to her thighs, her naked crotch exposed.\n, sharp focus, depth of field, 8k photo, HDR, professional lighting, taken with Canon EOS R5, 75mm lens It's a casual photo. very, focused, flash, photo, flashlight, full-body shot, long legs, full body shot ((NSFW)) \n-------------------------------------------------------------------------\nA casual photo of A pretty, wholesome, adorable, and Caucasian, “girl next door” who is 18 years old and has a nice petite body with nice firm medium large breasts. She has normal lips and does not wear heavy makeup. Her face is more classically pretty. She has a fair complexion and a nice sweet shy demeanor. Everyone is instantly attracted to her. Her nipples are pert. \n\nShe is wearing a white summer that is thin enough to be translucent. The dress clings to her body revealing the outline of her bra and panties. The light is behind her and shining the the dress. \nShe knows and is nervous about what you are about to do to her. \n\nA big man with an enormous straight erect penis stands next to her. She is looking at the penis and gasping. \n\nMasterpiece, 4K, HDR, 70mm, depth of field, fine details . It's a casual photo.\n--------------------------------\nA beautifully rendered image  A photo-realistic picture (((Rope Bondage harness))), (((arms behind back))), (((legs tied together shabari))), (((exposed breasts))), (((ripped clothes))), (((cute nipples))), ((3 Viking shield maiden)), ((on dock being sold)), ((wooden Viking shields all over the place)), ((blond hair)), ((braided hair)), ((long hair)), ((slave collar)), ((beautiful heavy swollen tits)), ((Viking long ships in harbor)), ((abs definition)), ((defeated look)), ((medieval times)), ((tied to the dock)), ((black male slave trader waiting to sell slave)), ((slave auction)), ((multiple girls standing side by side)), ((Slave Auction)), multiple girls in bondage, ((girls have different hair styles)), crowds of people, ((emphasize on a Woodend sign hanging above the girls, reading, \"Slaves for sale\")  he picture is a realistic and highly detailed masterpiece of perfect quality. The picture is incredibly realistic and focuses on accuracy., high quality image, 4k, 8k, HD, UHD, Sharp Focus, In Frame, AMD graphics, RTX\n-------------------------------------"
+      ],
+      "color": "#346434",
+      "bgcolor": "rgba(24,24,27,.9)"
+    },
+    {
+      "id": 42,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -471.9040222167969,
+        -1016.2156982421875
+      ],
+      "size": [
+        523.5892333984375,
+        97.33000183105469
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 75
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            61
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "(((older then 20))),Worst quality, Normal quality, Low quality, Low res, Blurry, Jpeg artifacts, Grainy, text, logo, watermark, banner, extra digits, signature, Cropped, Out of frame, Out of focus, Bad anatomy, Bad proportions, Deformed, Disconnected limbs, Disfigured, Extra arms, Extra limbs, Extra hands, Fused fingers, Gross proportions, Long neck, Malformed limbs, Mutated, Mutated hands, Mutated limbs, Missing arms, Missing fingers, Poorly drawn hands, Poorly drawn face, bad anatomy, poorly drawn hands, extra limbs, missing limbs, poorly drawn face, fused face, cloned face, extra eyes, oversized eyes, extra crus, fused crus, extra thigh, fused thigh, missing fingers, extra fingers, elongated fingers, horn, amputation, disconnected limbs, cartoon, cg, 3d, unreal, animate, cgi, render, artwork, illustration, 3d render, cinema 4d, artstation, octane render, painting, oil painting, 2d, sketch, bad photography, bad photo, aberrations, abstract, black and white, collapsed, conjoined, creative, drawing, extra windows, harsh lighting, jpeg artifacts, low saturation, monochrome, multiple levels, overexposed, oversaturated, photoshop, rotten, surreal, twisted, underexposed, unnatural, unreal engine, unrealistic, video game"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 43,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -474.1861267089844,
+        -1363.6414794921875
+      ],
+      "size": [
+        554.0965576171875,
+        304.5675964355469
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 76
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "CLIPTextEncode",
+        "widget_ue_connectable": {
+          "text": true
+        }
+      },
+      "widgets_values": [
+        "raw photo, untouched photo, amateur photo, polaroid, ((taken with kodak disposable camera)), , ((scene of a danish girl drunk in the livingroom bend over a chair)), long blond hair, (beatifull skinny body shape), (black sexy panties), ((C-cup breast)), cleavage showing, nipples, 90s home video, nostalgic 90s photo, , NSFW, candid, amazing quality, soft focus, depth of field, sharp focus, fine details,"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 50,
+      "type": "LoraLoader",
+      "pos": [
+        -458.955810546875,
+        -735.4126586914062
+      ],
+      "size": [
+        313.3583679199219,
+        129.02499389648438
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 78
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 74
+        },
+        {
+          "localized_name": "lora_name",
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_model",
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_clip",
+          "name": "strength_clip",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_clip"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            79
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            75,
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "LoraLoader",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "NSFW_master.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 41,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -455.0052185058594,
+        -555.4732666015625
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            77
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "EmptyLatentImage",
+        "widget_ue_connectable": {
+          "width": true,
+          "height": true,
+          "batch_size": true
+        }
+      },
+      "widgets_values": [
+        512,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 53,
+      "type": "Note",
+      "pos": [
+        -1440.56884765625,
+        -1427.6192626953125
+      ],
+      "size": [
+        379,
+        788
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "A teen schoolgirl gets fucked by her teacher on the desk, cinematic shot, dynamic lighting, 75mm, Technicolor, Panavision, cinemascope, sharp focus, fine details, 8k, HDR, realism, realistic, key visual, film still, cinematic color grading, depth of field.\n\nOverall, it's an absolute world-class cinematic masterpiece. It's an aesthetically pleasing cinematic shot with impeccable attention to detail and impressive composition.\n----------------------\nsmall teen, naked in a busy street, big boobs and firm ass spreading her asshole, cinematic shot, dynamic lighting, 75mm, Technicolor, Panavision, cinemascope, sharp focus, fine details, 8k, HDR, realism, realistic, key visual, film still, cinematic color grading, depth of field.\n\nOverall, it's an absolute world-class cinematic masterpiece. It's an aesthetically pleasing cinematic shot with impeccable attention to detail and impressive composition.\n------------------------------\nA casual photo of A pretty, wholesome, adorable, and Caucasian, “girl next door” who is 18 years old and has a nice petite body with nice firm medium large breasts. She has normal lips and does not wear heavy makeup. Her face is more classically pretty. She has a fair complexion and a nice sweet shy demeanor. Everyone is instantly attracted to her. Her nipples are pert. \n\nShe is wearing a white summer that is thin enough to be translucent. The dress clings to her body revealing the outline of her bra and panties. The light is behind her and shining the the dress. \nShe knows and is nervous about what you are about to do to her. \n\nA big man with an enormous straight erect penis stands next to her. She is looking at the penis and gasping. \n\nMasterpiece, 4K, HDR, 70mm, depth of field, fine details . It's a casual photo.\n------------------------\nRealistic front-angle closeup image of a cute pretty college intern girl, her dress slips open and exposes her breasts and pussy, 21 years old, she is making intense eye contact, she smiles and blushes, she has an expressive face, she has a messy blonde ponytail, she has large round brown eyes, she has a loose shirt with a fallen shoulder strap, one of her breasts is exposed while the other breast is covered, nipslip, small tits, one visible nipple, she is holding her dress up showing her pussy, staning on her toes, background: dim shadowy janitor’s closet with dark wood textures, the image style is realistic and cinematic, it uses best-exposure photography techniques with perfect ISO and soft focus, motion-blur, the image has incredibly detailed photorealistic skin and clothing textures, there is detailed particle interaction, the lighting uses cinematic low-light techniques, ((intense and accurate photographic realism with incredible amounts of detail:1.35)), front view, casual photo, cinematic shot, dynamic lighting, 75mm, Technicolor, Panavision, cinemascope, sharp focus, fine details, 8k, HDR, realism, realistic, key visual, film still, cinematic color grading, depth of field.\n\nOverall, it's an absolute world-class cinematic masterpiece. It's an aesthetically pleasing cinematic shot with impeccable attention to detail and impressive composition.\n------------------------\nbeautiful, gorgeous and angelic girl, cute and very pretty face, standing, (fair and white skin), no fault, thin and fit body, just perfect, sweater pulled all the way up exposing anatomically correct shaved pussy, midriff and small  perky natural boobs with erected nipples, (no makeup), beautiful hair, seductive eyes, toned body, toned thighs, both hands are holding the sweater up., casual photo.\n\ncute girl, a very young female, her fresh appearance radiates youth\n--------------\nAdorable, gorgeous, young blonde teen girl. She has a very young body. Professional quality, amazing quality, 8K, realistic quality, shot with a Canon EOS, 70 mm lens, beautiful, cute, a very young girl, she has extremely small breasts, flat chest, pretty makeup, sharp focus, depth of field, 8k photo, HDR, soft focus, depth of field, 8k photo, HDR, professional lighting, taken with Canon EOS R5, 75mm lens, beautiful, cute, a very young girl, soft focus, depth of field, 8k photo, HDR, professional lighting, taken with Canon EOS R5, 75mm lens, beautiful, cute, a very young girl, expressive eyes, ((small petite, innocent girl:1.2)), blonde, long hair, straight hair, (((ponytail))), white outfit, necklace, earrings, (bodystocking), wide-angle shot, full body shot, hypergorgeous stunning extra pretty young peak beauty 12ish, ((maximum beatification glamor makeup))\n----------------------\nHistorical photo of a incredibly beautiful but scared white (extremly completely nude) curvy woman trying to flee african village as she tries running away from a man. Black african tribal man is trying to stop her with outstretched arms grabbing at her body and hair. Violent altercation. Very old photo with clear details. Faces are highly expressive and detailed.    ,  .\n-------------------\nraw photo, untouched photo, amateur photo, polaroid, , , (scene of a danish girl drunk in the livingroom), long blond hair, (beatifull skinny body shape), (black sexy panties), ((C-cup breast)), cleavage showing, nipples, 90s home video, nostalgic 90s photo, ((taken with kodak disposable camera)), NSFW, candid, amazing quality, soft focus, depth of field, sharp focus, fine details,"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 51,
+      "type": "SaveImage",
+      "pos": [
+        -840.239501953125,
+        -1486.55859375
+      ],
+      "size": [
+        270,
+        270
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 80
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.34",
+        "Node name for S&R": "SaveImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -454.1795959472656,
+        -874.6073608398438
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "ckpt_name",
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "ckpt_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            78
+          ]
+        },
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            74
+          ]
+        },
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            67
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "widget_ue_connectable": {
+          "ckpt_name": true
+        }
+      },
+      "widgets_values": [
+        "V1\\cyberillustrious_v40.safetensors"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "PreviewImage",
+      "pos": [
+        -129.21923828125,
+        -856.938232421875
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 69
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "PreviewImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 46,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        115.94163513183594,
+        -725.913330078125
+      ],
+      "size": [
+        430.8000183105469,
+        358
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "input_image",
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 70
+        },
+        {
+          "localized_name": "source_image",
+          "name": "source_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 71
+        },
+        {
+          "localized_name": "face_model",
+          "name": "face_model",
+          "shape": 7,
+          "type": "FACE_MODEL",
+          "link": null
+        },
+        {
+          "localized_name": "face_boost",
+          "name": "face_boost",
+          "shape": 7,
+          "type": "FACE_BOOST",
+          "link": null
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "swap_model",
+          "name": "swap_model",
+          "type": "COMBO",
+          "widget": {
+            "name": "swap_model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "facedetection",
+          "name": "facedetection",
+          "type": "COMBO",
+          "widget": {
+            "name": "facedetection"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "face_restore_model",
+          "name": "face_restore_model",
+          "type": "COMBO",
+          "widget": {
+            "name": "face_restore_model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "face_restore_visibility",
+          "name": "face_restore_visibility",
+          "type": "FLOAT",
+          "widget": {
+            "name": "face_restore_visibility"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "codeformer_weight",
+          "name": "codeformer_weight",
+          "type": "FLOAT",
+          "widget": {
+            "name": "codeformer_weight"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "detect_gender_input",
+          "name": "detect_gender_input",
+          "type": "COMBO",
+          "widget": {
+            "name": "detect_gender_input"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "detect_gender_source",
+          "name": "detect_gender_source",
+          "type": "COMBO",
+          "widget": {
+            "name": "detect_gender_source"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "input_faces_index",
+          "name": "input_faces_index",
+          "type": "STRING",
+          "widget": {
+            "name": "input_faces_index"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "source_faces_index",
+          "name": "source_faces_index",
+          "type": "STRING",
+          "widget": {
+            "name": "source_faces_index"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "console_log_level",
+          "name": "console_log_level",
+          "type": "COMBO",
+          "widget": {
+            "name": "console_log_level"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            80,
+            86
+          ]
+        },
+        {
+          "localized_name": "FACE_MODEL",
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap",
+        "widget_ue_connectable": {
+          "enabled": true,
+          "swap_model": true,
+          "facedetection": true,
+          "face_restore_model": true,
+          "face_restore_visibility": true,
+          "codeformer_weight": true,
+          "detect_gender_input": true,
+          "detect_gender_source": true,
+          "input_faces_index": true,
+          "source_faces_index": true,
+          "console_log_level": true
+        }
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "retinaface_resnet50",
+        "codeformer-v0.1.0.pth",
+        1,
+        0.5,
+        "female",
+        "female",
+        "0",
+        "0",
+        1
+      ]
+    },
+    {
+      "id": 59,
+      "type": "PreviewImage",
+      "pos": [
+        -999.5992431640625,
+        -1369.553466796875
+      ],
+      "size": [
+        461.5602722167969,
+        604.8085327148438
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 86
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.40",
+        "Node name for S&R": "PreviewImage",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 44,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        100.6283187866211,
+        -1348.8660888671875
+      ],
+      "size": [
+        438.77984619140625,
+        558
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 79
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 62
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 61
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 77
+        },
+        {
+          "localized_name": "add_noise",
+          "name": "add_noise",
+          "type": "COMBO",
+          "widget": {
+            "name": "add_noise"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "noise_seed",
+          "name": "noise_seed",
+          "type": "INT",
+          "widget": {
+            "name": "noise_seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "start_at_step",
+          "name": "start_at_step",
+          "type": "INT",
+          "widget": {
+            "name": "start_at_step"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "end_at_step",
+          "name": "end_at_step",
+          "type": "INT",
+          "widget": {
+            "name": "end_at_step"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "return_with_leftover_noise",
+          "name": "return_with_leftover_noise",
+          "type": "COMBO",
+          "widget": {
+            "name": "return_with_leftover_noise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "KSamplerAdvanced",
+        "widget_ue_connectable": {
+          "add_noise": true,
+          "noise_seed": true,
+          "steps": true,
+          "cfg": true,
+          "sampler_name": true,
+          "scheduler": true,
+          "start_at_step": true,
+          "end_at_step": true,
+          "return_with_leftover_noise": true
+        }
+      },
+      "widgets_values": [
+        "enable",
+        369045032662536,
+        "randomize",
+        25,
+        8,
+        "dpmpp_2m",
+        "normal",
+        0,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "LoadImage",
+      "pos": [
+        -870.2228393554688,
+        -705.1109008789062
+      ],
+      "size": [
+        308.2107238769531,
+        326
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            71
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.29",
+        "Node name for S&R": "LoadImage",
+        "widget_ue_connectable": {
+          "image": true
+        }
+      },
+      "widgets_values": [
+        "image_upscayl_4x_ultramix-balanced-4x.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      17,
+      12,
+      0,
+      14,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      13,
+      0,
+      14,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      19,
+      11,
+      0,
+      14,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      15,
+      0,
+      14,
+      3,
+      "LATENT"
+    ],
+    [
+      21,
+      14,
+      0,
+      17,
+      0,
+      "LATENT"
+    ],
+    [
+      22,
+      11,
+      2,
+      17,
+      1,
+      "VAE"
+    ],
+    [
+      23,
+      17,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      24,
+      25,
+      0,
+      21,
+      0,
+      "LATENT"
+    ],
+    [
+      25,
+      26,
+      2,
+      21,
+      1,
+      "VAE"
+    ],
+    [
+      26,
+      21,
+      0,
+      22,
+      0,
+      "IMAGE"
+    ],
+    [
+      33,
+      27,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      46,
+      23,
+      0,
+      25,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      47,
+      24,
+      0,
+      25,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      48,
+      28,
+      0,
+      25,
+      3,
+      "LATENT"
+    ],
+    [
+      49,
+      26,
+      2,
+      28,
+      1,
+      "VAE"
+    ],
+    [
+      51,
+      34,
+      1,
+      23,
+      0,
+      "CLIP"
+    ],
+    [
+      52,
+      34,
+      1,
+      24,
+      0,
+      "CLIP"
+    ],
+    [
+      53,
+      26,
+      1,
+      34,
+      1,
+      "CLIP"
+    ],
+    [
+      54,
+      26,
+      0,
+      34,
+      0,
+      "MODEL"
+    ],
+    [
+      55,
+      34,
+      0,
+      25,
+      0,
+      "MODEL"
+    ],
+    [
+      57,
+      36,
+      1,
+      12,
+      0,
+      "CLIP"
+    ],
+    [
+      58,
+      11,
+      1,
+      36,
+      1,
+      "CLIP"
+    ],
+    [
+      59,
+      36,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      60,
+      11,
+      0,
+      36,
+      0,
+      "MODEL"
+    ],
+    [
+      61,
+      42,
+      0,
+      44,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      62,
+      43,
+      0,
+      44,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      67,
+      39,
+      2,
+      45,
+      1,
+      "VAE"
+    ],
+    [
+      68,
+      44,
+      0,
+      45,
+      0,
+      "LATENT"
+    ],
+    [
+      69,
+      45,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      70,
+      45,
+      0,
+      46,
+      0,
+      "IMAGE"
+    ],
+    [
+      71,
+      47,
+      0,
+      46,
+      1,
+      "IMAGE"
+    ],
+    [
+      74,
+      39,
+      1,
+      50,
+      1,
+      "CLIP"
+    ],
+    [
+      75,
+      50,
+      1,
+      42,
+      0,
+      "CLIP"
+    ],
+    [
+      76,
+      50,
+      1,
+      43,
+      0,
+      "CLIP"
+    ],
+    [
+      77,
+      41,
+      0,
+      44,
+      3,
+      "LATENT"
+    ],
+    [
+      78,
+      39,
+      0,
+      50,
+      0,
+      "MODEL"
+    ],
+    [
+      79,
+      50,
+      0,
+      44,
+      0,
+      "MODEL"
+    ],
+    [
+      80,
+      46,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      46,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7067810865575187,
+      "offset": [
+        1854.1844614536628,
+        1677.756129016987
+      ]
+    },
+    "node_versions": {
+      "comfy-core": "v0.3.10-17-g67758f5"
+    },
+    "ue_links": [],
+    "frontendVersion": "1.16.8",
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}
